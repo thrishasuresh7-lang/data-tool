@@ -1,3 +1,5 @@
+
+import { ROUTES } from '../constants/routes'
 import { useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import ModulePage from '../components/ModulePage'
@@ -59,7 +61,7 @@ export default function ProgressPage() {
       purpose="Track verifiable learning activity and performance signals from saved work."
       status="available"
       nextActionLabel="Continue Learning"
-      nextActionTo="/dashboard"
+      nextActionTo={ROUTES.DASHBOARD}
     >
       <section className="card">
         <p>Last dataset used: {lastDataset}</p>
