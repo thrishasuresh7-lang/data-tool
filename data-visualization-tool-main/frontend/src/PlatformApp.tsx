@@ -1,3 +1,4 @@
+import { ROUTES } from "./constants/routes";
 import { Suspense, lazy } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import AppShell from './components/AppShell'
@@ -22,20 +23,20 @@ const ProgressPage = lazy(() => import('./pages/ProgressPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 const navItems = [
-  { to: '/dashboard', label: 'Dashboard' },
-  { to: '/learn', label: 'Learn' },
-  { to: '/datasets', label: 'Datasets' },
-  { to: '/data-explorer', label: 'Data Explorer' },
-  { to: '/data-cleaning-lab', label: 'Data Cleaning Lab' },
-  { to: '/visualization-lab', label: 'Visualization Lab' },
-  { to: '/statistics-lab', label: 'Statistics Lab' },
-  { to: '/insights-lab', label: 'Insights Lab' },
-  { to: '/practice', label: 'Practice' },
-  { to: '/challenges', label: 'Challenges' },
-  { to: '/projects', label: 'Projects' },
-  { to: '/learning-path', label: 'Learning Path' },
-  { to: '/resources', label: 'Resources' },
-  { to: '/progress', label: 'Progress' },
+  { to: ROUTES.DASHBOARD, label: 'Dashboard' },
+  { to: ROUTES.LEARN, label: 'Learn' },
+  { to: ROUTES.DATASETS, label: 'Datasets' },
+  { to: ROUTES.DATA_EXPLORER, label: 'Data Explorer' },
+  { to: ROUTES.DATA_CLEANING_LAB, label: 'Data Cleaning Lab' },
+  { to: ROUTES.VISUALIZATION_LAB, label: 'Visualization Lab' },
+  { to: ROUTES.STATISTICS_LAB, label: 'Statistics Lab' },
+  { to: ROUTES.INSIGHTS_LAB, label: 'Insights Lab' },
+  { to: ROUTES.PRACTICE, label: 'Practice' },
+  { to: ROUTES.CHALLENGES, label: 'Challenges' },
+  { to: ROUTES.PROJECTS, label: 'Projects' },
+  { to: ROUTES.LEARNING_PATH, label: 'Learning Path' },
+  { to: ROUTES.RESOURCES, label: 'Resources' },
+  { to: ROUTES.PROGRESS, label: 'Progress' },
 ]
 
 export default function PlatformApp() {
@@ -45,23 +46,24 @@ export default function PlatformApp() {
         <Suspense fallback={<div className="route-loading">Loading module...</div>}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/home" element={<Navigate to="/" replace />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/learn" element={<LearnPage />} />
-            <Route path="/datasets" element={<DatasetsPage />} />
-            <Route path="/data-explorer" element={<DataExplorerPage />} />
-            <Route path="/data-explorer/legacy" element={<LegacyDataExplorerPage />} />
-            <Route path="/data-cleaning-lab" element={<DataCleaningLabPage />} />
-            <Route path="/visualization-lab" element={<VisualizationLabPage />} />
-            <Route path="/statistics-lab" element={<StatisticsLabPage />} />
-            <Route path="/insights-lab" element={<InsightsLabPage />} />
-            <Route path="/practice" element={<PracticePage />} />
-            <Route path="/challenges" element={<ChallengesPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/learning-path" element={<LearningPathPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
-            <Route path="/progress" element={<ProgressPage />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path={ROUTES.HOME} element={<LandingPage />} />
+<Route path="/home" element={<Navigate to={ROUTES.HOME} replace />} />
+<Route path={ROUTES.DASHBOARD} element={<DashboardPage />} />
+<Route path={ROUTES.LEARN} element={<LearnPage />} />
+<Route path={ROUTES.DATASETS} element={<DatasetsPage />} />
+<Route path={ROUTES.DATA_EXPLORER} element={<DataExplorerPage />} />
+<Route path={ROUTES.LEGACY_DATA_EXPLORER} element={<LegacyDataExplorerPage />} />
+<Route path={ROUTES.DATA_CLEANING_LAB} element={<DataCleaningLabPage />} />
+<Route path={ROUTES.VISUALIZATION_LAB} element={<VisualizationLabPage />} />
+<Route path={ROUTES.STATISTICS_LAB} element={<StatisticsLabPage />} />
+<Route path={ROUTES.INSIGHTS_LAB} element={<InsightsLabPage />} />
+<Route path={ROUTES.PRACTICE} element={<PracticePage />} />
+<Route path={ROUTES.CHALLENGES} element={<ChallengesPage />} />
+<Route path={ROUTES.PROJECTS} element={<ProjectsPage />} />
+<Route path={ROUTES.LEARNING_PATH} element={<LearningPathPage />} />
+<Route path={ROUTES.RESOURCES} element={<ResourcesPage />} />
+<Route path={ROUTES.PROGRESS} element={<ProgressPage />} />
+<Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
       </AppShell>

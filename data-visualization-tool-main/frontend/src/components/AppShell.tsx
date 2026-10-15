@@ -1,3 +1,4 @@
+import { ROUTES } from "../constants/routes";
 import { useEffect, useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
@@ -14,21 +15,21 @@ type AppShellProps = {
 }
 
 const pathToLabel: Record<string, string> = {
-  '/': 'Home',
-  '/dashboard': 'Dashboard',
-  '/learn': 'Learn',
-  '/datasets': 'Datasets',
-  '/data-explorer': 'Data Explorer',
-  '/data-cleaning-lab': 'Data Cleaning Lab',
-  '/visualization-lab': 'Visualization Lab',
-  '/statistics-lab': 'Statistics Lab',
-  '/insights-lab': 'Insights Lab',
-  '/practice': 'Practice',
-  '/challenges': 'Challenges',
-  '/projects': 'Projects',
-  '/learning-path': 'Learning Path',
-  '/resources': 'Resources',
-  '/progress': 'Progress',
+  [ROUTES.HOME]: 'Home',
+  [ROUTES.DASHBOARD]: 'Dashboard',
+  [ROUTES.LEARN]: 'Learn',
+  [ROUTES.DATASETS]: 'Datasets',
+  [ROUTES.DATA_EXPLORER]: 'Data Explorer',
+  [ROUTES.DATA_CLEANING_LAB]: 'Data Cleaning Lab',
+  [ROUTES.VISUALIZATION_LAB]: 'Visualization Lab',
+  [ROUTES.STATISTICS_LAB]: 'Statistics Lab',
+  [ROUTES.INSIGHTS_LAB]: 'Insights Lab',
+  [ROUTES.PRACTICE]: 'Practice',
+  [ROUTES.CHALLENGES]: 'Challenges',
+  [ROUTES.PROJECTS]: 'Projects',
+  [ROUTES.LEARNING_PATH]: 'Learning Path',
+  [ROUTES.RESOURCES]: 'Resources',
+  [ROUTES.PROGRESS]: 'Progress',
 }
 
 export default function AppShell({ navItems, children }: AppShellProps) {
